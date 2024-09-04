@@ -1,0 +1,45 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 23px;
+  color: #c4c4c4;
+}
+
+.links {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.error {
+  color: var(--white-color);
+  background: #ffc529;
+  padding: 20px;
+}
