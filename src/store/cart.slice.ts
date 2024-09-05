@@ -1,7 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { PREFIX } from '../helpers/API';
-import axios, { AxiosError } from 'axios';
-import { RootState } from '../store/store';
 
 export interface CartItem {
   id: number;
@@ -20,6 +17,26 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    remove: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
+    decrease: (state, action: PayloadAction<number>) => {
+      const existed = state.items.find((item) => item.id === action.payload);
+      if (!existed) {
+        return;
+      }
+      if (existed.count === 1) {
+        state.items = state.items.filter((item) => item.id !== action.payload);
+      } else {
+        state.items.map((item) => {
+          if (item.id === action.payload) {
+            item.count -= 1;
+          }
+          return item;
+        });
+        return;
+      }
+    },
     add: (state, action: PayloadAction<number>) => {
       const existed = state.items.find((item) => item.id === action.payload);
       if (!existed) {
