@@ -7,10 +7,11 @@ import { AppDispatch } from '../../store/store';
 
 const ProductCard = (props: ProductCardProps) => {
   const dispatch = useDispatch<AppDispatch>();
-  const add = (e: MouseEvent) => {
+  const add = (e: React.MouseEvent) => {
     e.preventDefault();
     dispatch(cartActions.add(props.id));
   };
+
   return (
     <Link to={`/product/${props.id}`} className={styles['link']}>
       <div className={styles['card']}>
